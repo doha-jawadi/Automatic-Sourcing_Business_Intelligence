@@ -7,7 +7,7 @@ import time
 def datawarehouse1(subject):
     start_time = time.time()
     client = pymongo.MongoClient()
-    db = "vveille_scientifique_" + subject
+    db = "veille_scientifique_" + subject
     vs = client[db]
     Cjournal = vs['journal']
     Cauthor = vs['author']
@@ -174,4 +174,4 @@ def datawarehouse1(subject):
                 insert_abstract = {'abstract': abstract}
                 id_abstract = Cabstract.insert_one(insert_abstract).inserted_id
                 tous['FK_abstract'] = id_abstract
-datawarehouse1("covid")
+datawarehouse1("Science")
